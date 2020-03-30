@@ -6,12 +6,32 @@ import { Container, Content, Footer, FooterTab, Button, Icon, View, Text } from 
 import HomeScreen from './src/screens/HomeScreen';
 import SearchScreen from './src/screens/SearchScreen';
 import AccountScreen from './src/screens/AccountScreen';
+import PlaceDetail from "./src/components/PlaceDetail"
+import TabDetail from "./src/components/TabDetail"
+import Place from "./src/components/Place"
 
+const HomeStack = createStackNavigator({
+  TabDetail: {
+      screen: TabDetail,
+      navigationOptions: {
+        title : "spotland"
+      }
+  },
+  Place: {
+      screen: Place
+  },
+  PlaceDetail: {
+      screen: PlaceDetail,
+      navigationOptions: {
+        title : "Place Detail"
+      }
+  }
+});
 
 const tabNavigator = createMaterialBottomTabNavigator(
   {
     Home: {
-      screen: HomeScreen,
+      screen:HomeStack,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <View>
