@@ -48,10 +48,10 @@ const HomeScreen = props => {
                     <Text style={styles.cateogryTextStyle}>Popular City</Text>
                 </Grid>
                 <Grid>
-                    <List style={styles.listStyle} dataArray={places} horizontal={true} showsHorizontalScrollIndicator={false}
+                    <List dataArray={places} horizontal={true} showsHorizontalScrollIndicator={false}
                         keyExtractor={place => place.title}
                         renderRow={(place) =>
-                            <ListItem>
+                            <ListItem style={styles.listStyle}>
                                 <Category nav={props} place={place} />
                             </ListItem>
                         }>
@@ -76,6 +76,8 @@ const HomeScreen = props => {
 
 const styles = StyleSheet.create({
     listStyle: {
+        borderBottomWidth: 0,
+        borderTopWidth: 0
     },
     titleStyle: {
         fontSize: 35,
@@ -84,9 +86,10 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     cateogryTextStyle: {
-        fontSize: 23,
+        fontSize: 18,
         alignItems: "flex-start",
-        padding: 20
+        paddingHorizontal: 20,
+        padding: 10
 
     }
 });
