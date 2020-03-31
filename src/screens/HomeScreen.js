@@ -1,52 +1,93 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { Container, Header, Content, Footer, FooterTab, Button, Icon, View, Text, Tab, Tabs, ScrollableTab } from 'native-base';
+import { Container, Header, Content, Footer, FooterTab, Button, Icon, View, Text, Tab, Tabs, ScrollableTab, ListItem, List, Grid } from 'native-base';
 import TabDetail from '../components/TabDetail';
 import PlaceDetail from '../components/PlaceDetail';
 import Place from "../components/Place"
-import { createStackNavigator } from "react-navigation-stack";
+import Category from "../components/Category";
 
-const navOptionHandler = (navigation) =>  ({
-    header : null
-})
+const HomeScreen = props => {
+    var places = [
+        {
+            title: "Pink Beach",
+            likes: "921",
+            comments: "78",
+            imgUrl: "https://i.picsum.photos/id/626/400/400.jpg",
+            pin: "Nusa Tenggara Timur"
+        },
+        {
+            title: "Stonehenge",
+            likes: "921",
+            comments: "78",
+            imgUrl: "https://i.picsum.photos/id/699/400/400.jpg",
+            pin: "Jakarta"
+        },
+        {
+            title: "Beach",
+            likes: "921",
+            comments: "78",
+            imgUrl: "https://i.picsum.photos/id/612/400/400.jpg",
+            pin: "Jakarta"
+        },
+        {
+            title: "Monumen",
+            likes: "921",
+            comments: "78",
+            imgUrl: "https://i.picsum.photos/id/643/400/400.jpg",
+            pin: "Jakarta"
+        }
+    ];
 
-const HomeStack = createStackNavigator({
-    TabDetail: {
-        screen: TabDetail,
-        navigationOptions : navOptionHandler
-    },
-    Place: {
-        screen: Place,
-        navigationOptions : navOptionHandler
-    },
-    PlaceDetail: {
-        screen: PlaceDetail,
-        navigationOptions : navOptionHandler
-    }
-});
-
-const HomeScreen = (props) => {
     return (
         <Container>
-            <Header><Text>Spotland</Text></Header>
-            <Tabs renderTabBar={() => <ScrollableTab />}>
-                <Tab heading="Experience">
-                    <TabDetail nav={props}/>
-                </Tab>
-                <Tab heading="Adventure">
-                    <TabDetail nav={props}/>
-                </Tab>
-                <Tab heading="Activities">
-                    <TabDetail nav={props}/>
-                </Tab>
-            </Tabs>
+            <Content>
+                <Grid>
+                    <Text style={styles.titleStyle}>Find awesome place</Text>
+                </Grid>
+                <Grid>
+                    <Text style={styles.cateogryTextStyle}>Popular City</Text>
+                </Grid>
+                <Grid>
+                    <List style={styles.listStyle} dataArray={places} horizontal={true} showsHorizontalScrollIndicator={false}
+                        keyExtractor={place => place.title}
+                        renderRow={(place) =>
+                            <ListItem>
+                                <Category nav={props} place={place} />
+                            </ListItem>
+                        }>
+                    </List>
+                </Grid>
+
+                <Grid>
+                    <Text style={styles.cateogryTextStyle}>Popular Place</Text>
+                </Grid>
+
+                <List>
+                    <Place place={places[0]} nav={props} />
+                    <Place place={places[1]} nav={props} />
+                    <Place place={places[2]} nav={props} />
+                    <Place place={places[3]} nav={props} />
+                </List>
+            </Content>
+
         </Container>
     )
 };
 
 const styles = StyleSheet.create({
-    text: {
-        fontSize: 30
+    listStyle: {
+    },
+    titleStyle: {
+        fontSize: 35,
+        alignItems: "flex-start",
+        padding: 20,
+        fontWeight: "bold"
+    },
+    cateogryTextStyle: {
+        fontSize: 23,
+        alignItems: "flex-start",
+        padding: 20
+
     }
 });
 

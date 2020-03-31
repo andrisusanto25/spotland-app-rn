@@ -11,8 +11,8 @@ import TabDetail from "./src/components/TabDetail"
 import Place from "./src/components/Place"
 
 const HomeStack = createStackNavigator({
-  TabDetail: {
-      screen: TabDetail,
+  HomeScreen: {
+      screen: HomeScreen,
       navigationOptions: {
         title : "spotland"
       }

@@ -3,31 +3,19 @@ import { Image, StyleSheet, useNavigation } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right, View, Grid } from 'native-base';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const Place = props => {
+const Category = props => {
     let nav = props.nav.navigation
     let place = props.place
     return (
-        <Card>
+        <Card style={styles.cardStyle}>
             <TouchableOpacity onPress = {() => nav.navigate('PlaceDetail', {item: place})}>
                 <CardItem cardBody>
                     <Image source={{ uri: place.imgUrl }} style={styles.imageStyle} />
                 </CardItem>
-                <CardItem>
+                <CardItem style={styles.cardItemStyle}>
                     <Text style={styles.titleStyle}>{place.title}</Text>
                 </CardItem>
             </TouchableOpacity>
-            <CardItem>
-                    <Grid style={styles.gridStyle}>
-                        <Icon style={styles.iconStyle} name="thumbs-up" type="FontAwesome5" />
-                        <Text style={styles.textStyle}>{place.likes}</Text>
-                        <Icon style={styles.iconStyle} name="comment" type="FontAwesome5" />
-                        <Text style={styles.textStyle}>{place.comments}</Text>
-                    </Grid>
-                    <Grid style={styles.gridStyle}>
-                        <Icon style={styles.iconStyle} name="map-marker-alt" type="FontAwesome5" />
-                        <Text style={styles.textStyle}> {place.pin}</Text>
-                    </Grid>
-            </CardItem>
         </Card>
     )
 }
@@ -36,10 +24,13 @@ const styles = StyleSheet.create({
     imageStyle: {
         height: 200,
         width: null,
-        flex: 1
+        flex: 1,
+        borderTopLeftRadius: 18,
+        borderTopRightRadius: 18
     },
     titleStyle: {
-        fontSize: 16
+        fontSize: 15,
+        textAlign: "center"
     },
     iconStyle: {
         color: "black",
@@ -56,7 +47,15 @@ const styles = StyleSheet.create({
     gridStyle : {
         justifyContent : "flex-start",
         flexDirection: "row"
+    },
+    cardStyle : {
+        height : 250,
+        width: 150,
+        borderRadius: 18
+    },
+    cardItemStyle : {
+        alignSelf: "center"
     }
 })
 
-export default Place;
+export default Category;

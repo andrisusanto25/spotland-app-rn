@@ -41,10 +41,10 @@ const TabDetail = props => {
         <Container>
             <Content>
                 <List>
-                    <Place place={place[0]} nav={props}/>
-                    <Place place={place[1]} nav={props}/>
-                    <Place place={place[2]} nav={props}/>
-                    <Place place={place[3]} nav={props}/>
+                    <Place place={place[0]} nav={props.nav}/>
+                    <Place place={place[1]} nav={props.nav}/>
+                    <Place place={place[2]} nav={props.nav}/>
+                    <Place place={place[3]} nav={props.nav}/>
                 </List>
             </Content>
         </Container>
