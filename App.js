@@ -14,7 +14,11 @@ const HomeStack = createStackNavigator({
   HomeScreen: {
       screen: HomeScreen,
       navigationOptions: {
-        title : "spotland"
+        title : "spotland",
+        headerTitleStyle: {
+          fontFamily: "Times New Roman",
+          fontSize: 30
+        }
       }
   },
   Place: {
