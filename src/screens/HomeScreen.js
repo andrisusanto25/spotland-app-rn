@@ -9,32 +9,32 @@ import Category from "../components/Category";
 const HomeScreen = props => {
     var places = [
         {
-            title: "Pink Beach",
+            title: "Hill",
             likes: "921",
             comments: "78",
-            imgUrl: "https://i.picsum.photos/id/626/400/400.jpg",
+            imgUrl: "https://i.picsum.photos/id/688/400/400.jpg",
             pin: "Nusa Tenggara Timur"
         },
         {
-            title: "Stonehenge",
+            title: "Forest",
             likes: "921",
             comments: "78",
             imgUrl: "https://i.picsum.photos/id/699/400/400.jpg",
+            pin: "Bandung"
+        },
+        {
+            title: "Space",
+            likes: "921",
+            comments: "78",
+            imgUrl: "https://i.picsum.photos/id/654/400/400.jpg",
             pin: "Jakarta"
         },
         {
             title: "Beach",
             likes: "921",
             comments: "78",
-            imgUrl: "https://i.picsum.photos/id/612/400/400.jpg",
-            pin: "Jakarta"
-        },
-        {
-            title: "Monumen",
-            likes: "921",
-            comments: "78",
             imgUrl: "https://i.picsum.photos/id/643/400/400.jpg",
-            pin: "Jakarta"
+            pin: "Bali"
         }
     ];
 

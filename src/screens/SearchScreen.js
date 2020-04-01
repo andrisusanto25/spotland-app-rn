@@ -1,22 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet } from "react-native";
-import { Container, Content, Header, Footer, FooterTab, Button, Icon, View, Text } from 'native-base';
+import { Container, Header, Item, Icon, Input, Button, Text, Content } from "native-base";
 
-const SearchScreen = (props) => {
-    return (
-        <Container>
-            <Header><Text>Search</Text></Header>
-            <Content>
-                <Text>This is search</Text>
-            </Content>
-        </Container>
-    )
-};
+class SearchScreen extends Component {
+    state = {
+        search: '',
+    };
 
-const styles = StyleSheet.create({
-    text: {
-        fontSize: 30
+    updateSearch = search => {
+        this.setState({ search });
+    };
+
+    render() {
+        const { search } = this.state;
+
+        return (
+            <Container>
+                <Header searchBar rounded>
+                    <Item>
+                        <Icon name="ios-search" />
+                        <Input placeholder="Search"
+                        onChangeText={this.updateSearch}
+                        value={search}/>
+                    </Item>
+                    <Button transparent>
+                        <Text>Search</Text>
+                    </Button>
+                </Header>
+                <Content>
+                    <Text>{search}</Text>
+                </Content>
+            </Container>
+
+        );
     }
-});
+}
 
 export default SearchScreen;

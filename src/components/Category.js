@@ -8,12 +8,16 @@ const Category = props => {
     let place = props.place
     return (
         <Card style={styles.cardStyle}>
-            <TouchableOpacity onPress = {() => nav.navigate('PlaceDetail', {item: place})}>
+            <TouchableOpacity onPress = {() => nav.navigate('PlaceDetail', { item: place })}>
                 <CardItem cardBody>
                     <Image source={{ uri: place.imgUrl }} style={styles.imageStyle} />
                 </CardItem>
                 <CardItem style={styles.cardItemStyle}>
-                    <Text style={styles.titleStyle}>{place.title}</Text>
+                    <Text style={styles.titleStyle} numberOfLines={1}>
+                        {place.pin.length < 20
+                            ? `${place.pin}`
+                            : `${place.pin.substring(0, 19)}...`}
+                    </Text>
                 </CardItem>
             </TouchableOpacity>
         </Card>
@@ -29,7 +33,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 18
     },
     titleStyle: {
-        fontSize: 15,
+        fontSize: 12,
         textAlign: "center"
     },
     iconStyle: {
@@ -39,21 +43,21 @@ const styles = StyleSheet.create({
         height: 20
     },
     textStyle: {
-        fontSize : 13,
-        alignItems : "flex-start",
+        fontSize: 13,
+        alignItems: "flex-start",
         height: 20,
         flex: 1
     },
-    gridStyle : {
-        justifyContent : "flex-start",
+    gridStyle: {
+        justifyContent: "flex-start",
         flexDirection: "row"
     },
-    cardStyle : {
-        height : 250,
+    cardStyle: {
+        height: 250,
         width: 150,
         borderRadius: 18
     },
-    cardItemStyle : {
+    cardItemStyle: {
         alignSelf: "center"
     }
 })

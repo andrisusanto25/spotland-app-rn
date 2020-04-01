@@ -1,21 +1,54 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { Container, Content, Header, Footer, FooterTab, Button, Icon, View, Text } from 'native-base';
+import React, { Component } from "react";
+import { StyleSheet, Image } from "react-native";
+import { Container, Header, Content, Form, Item, Input, Label, Button, Text, Grid, Icon } from 'native-base';
 
-const AccountScreen = (props) => {
-    return (
-        <Container>
-            <Header><Text>AccountScreen</Text></Header>
-            <Content>
-                <Text>This is AccountScreen</Text>
-            </Content>
-        </Container>
-    )
-};
+class AccountScreen extends Component {
+    render() {
+        return (
+            <Container>
+                <Content>
+                    <Button style={styles.buttonRegisStyle} transparent>
+                        <Text>Register</Text>
+                    </Button>
+                    <Image source={require('../../assets/door-logo.png')} style={styles.imageStyle} />
+                    <Form style={styles.formStyle}>
+                        <Item floatingLabel>
+                            <Label>Username</Label>
+                            <Input />
+                        </Item>
+                        <Item floatingLabel last>
+                            <Label>Password</Label>
+                            <Input secureTextEntry={true} style={styles.default} />
+                        </Item>
+                    </Form>
+
+                    <Button style={styles.buttonLoginStyle} block>
+                        <Text>Login</Text>
+                    </Button>
+                </Content>
+            </Container>
+        );
+    }
+}
 
 const styles = StyleSheet.create({
-    text: {
-        fontSize: 30
+    formStyle: {
+        marginTop: 10
+    },
+    buttonLoginStyle: {
+        marginTop: 20,
+        width: 200,
+        alignSelf: "center"
+    },
+    buttonRegisStyle: {
+        marginTop: 20,
+        width: 100
+    },
+    imageStyle: {
+        marginTop: 100,
+        alignSelf: "center",
+        width: 150,
+        height: 150
     }
 });
 

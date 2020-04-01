@@ -25,7 +25,11 @@ const Place = props => {
                     </Grid>
                     <Grid style={styles.gridStyle}>
                         <Icon style={styles.iconStyle} name="map-marker-alt" type="FontAwesome5" />
-                        <Text style={styles.textStyle}> {place.pin}</Text>
+                        <Text style={styles.textStyle} numberOfLines={1}>
+                        {place.pin.length < 20
+                            ? `${place.pin}`
+                            : `${place.pin.substring(0, 19)}...`}
+                    </Text>
                     </Grid>
             </CardItem>
         </Card>
@@ -42,7 +46,6 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     iconStyle: {
-        color: "black",
         fontSize: 12,
         width: 20,
         height: 20
@@ -50,12 +53,13 @@ const styles = StyleSheet.create({
     textStyle: {
         fontSize : 13,
         alignItems : "flex-start",
-        height: 20,
-        flex: 1
+        flex: 1,
+        paddingBottom: 5
     },
     gridStyle : {
         justifyContent : "flex-start",
-        flexDirection: "row"
+        flexDirection: "row",
+        alignItems: "center"
     }
 })
 

@@ -14,6 +14,7 @@ const HomeStack = createStackNavigator({
   HomeScreen: {
       screen: HomeScreen,
       navigationOptions: {
+        headerBackTitle: '',
         title : "spotland",
         headerTitleStyle: {
           fontFamily: "Times New Roman",
@@ -22,12 +23,16 @@ const HomeStack = createStackNavigator({
       }
   },
   Place: {
-      screen: Place
+      screen: Place,
+      navigationOptions: {
+        headerBackTitle: ''
+      }
   },
   PlaceDetail: {
       screen: PlaceDetail,
       navigationOptions: {
-        title : "Place Detail"
+        title : "Place Detail",
+        headerBackTitle: ''
       }
   }
 });
